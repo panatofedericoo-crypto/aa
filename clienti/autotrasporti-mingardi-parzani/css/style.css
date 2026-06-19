@@ -1,0 +1,201 @@
+/* ============================================
+   Autotrasporti Mingardi & Parzani
+   Stile elegante / boutique (ispirato a hotel di charme)
+   Personalizza colori e font qui sotto in :root
+============================================ */
+:root {
+  --ink: #1c1a17;          /* antracite caldo */
+  --ink-soft: #2a2722;
+  --cream: #f5f1ea;        /* avorio di sfondo */
+  --cream-2: #ece5d8;
+  --gold: #b08d57;         /* accento oro/bronzo */
+  --gold-dark: #977441;
+  --text-muted: #6f6a61;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --maxw: 1240px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Jost', system-ui, sans-serif;
+  font-weight: 300;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+h1, h2, h3, h4, .serif {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+}
+
+/* ---------- Loader ---------- */
+.loader {
+  position: fixed; inset: 0; z-index: 1000;
+  background: var(--ink);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.2rem;
+  transition: opacity .8s var(--ease), visibility .8s var(--ease);
+}
+.loader.is-done { opacity: 0; visibility: hidden; }
+.loader__name { font-family: 'Cormorant Garamond', serif; color: var(--cream); font-size: clamp(1.8rem, 5vw, 3rem); letter-spacing: .04em; }
+.loader__line { width: 0; height: 1px; background: var(--gold); animation: loadLine 1.6s var(--ease) forwards; }
+@keyframes loadLine { to { width: 180px; } }
+
+/* ---------- Navbar ---------- */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.6rem clamp(1.2rem, 5vw, 4rem);
+  transition: background .5s var(--ease), padding .5s var(--ease), box-shadow .5s var(--ease);
+}
+.nav.is-scrolled { background: rgba(245,241,234,.92); backdrop-filter: blur(10px); padding-block: 1rem; box-shadow: 0 1px 0 rgba(28,26,23,.08); }
+.nav__brand { display: flex; flex-direction: column; line-height: 1.1; }
+.nav__brand-main { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; }
+.nav__brand-sub { font-size: .68rem; letter-spacing: .25em; text-transform: uppercase; color: var(--text-muted); }
+.nav:not(.is-scrolled) .nav__brand-main,
+.nav:not(.is-scrolled) .nav__links a { color: var(--cream); }
+.nav:not(.is-scrolled) .nav__brand-sub { color: rgba(245,241,234,.7); }
+.nav__links { display: flex; align-items: center; gap: 2.4rem; }
+.nav__links a { font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; position: relative; transition: color .3s; }
+.nav__links a:not(.nav__cta)::after { content: ""; position: absolute; left: 0; bottom: -4px; width: 0; height: 1px; background: var(--gold); transition: width .4s var(--ease); }
+.nav__links a:not(.nav__cta):hover::after { width: 100%; }
+.nav__cta { border: 1px solid currentColor; padding: .55rem 1.3rem; border-radius: 1px; }
+.nav__cta:hover { background: var(--gold); border-color: var(--gold); color: var(--cream) !important; }
+.nav__burger { display: none; flex-direction: column; gap: 5px; background: none; border: 0; cursor: pointer; z-index: 101; }
+.nav__burger span { width: 26px; height: 1.5px; background: currentColor; transition: .3s var(--ease); }
+.nav:not(.is-scrolled) .nav__burger { color: var(--cream); }
+
+/* ---------- Bottoni ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 1rem 2.2rem; font-size: .8rem; letter-spacing: .18em; text-transform: uppercase;
+  border-radius: 1px; transition: all .4s var(--ease);
+}
+.btn--solid { background: var(--gold); color: var(--cream); }
+.btn--solid:hover { background: var(--cream); color: var(--ink); }
+.btn--line { border: 1px solid rgba(245,241,234,.6); color: var(--cream); }
+.btn--line:hover { background: var(--cream); color: var(--ink); border-color: var(--cream); }
+
+/* ---------- HERO ---------- */
+.hero { position: relative; min-height: 100vh; display: flex; align-items: center; padding: 0 clamp(1.2rem, 5vw, 5rem); }
+.hero__media { position: absolute; inset: 0; z-index: -1; }
+.hero__media img { transform: scale(1.05); animation: kenburns 14s ease-out forwards; filter: grayscale(.2) brightness(.85) sepia(.15); }
+@keyframes kenburns { to { transform: scale(1.18); } }
+.hero__overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(28,26,23,.75) 0%, rgba(28,26,23,.45) 55%, rgba(28,26,23,.25) 100%); }
+.hero__content { position: relative; max-width: 720px; color: var(--cream); }
+.hero__eyebrow { font-size: .78rem; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.6rem; }
+.hero__title { font-size: clamp(2.8rem, 8vw, 6.5rem); margin-bottom: 1.8rem; }
+.hero__title span { display: block; }
+.hero__title em { color: var(--gold); font-style: italic; }
+.hero__sub { max-width: 520px; font-weight: 300; font-size: 1.08rem; color: rgba(245,241,234,.85); margin-bottom: 2.6rem; }
+.hero__actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.hero__est { position: absolute; right: clamp(1.2rem, 5vw, 5rem); bottom: 2.5rem; color: rgba(245,241,234,.75); font-family: 'Cormorant Garamond', serif; font-size: 1rem; letter-spacing: .3em; writing-mode: vertical-rl; }
+.hero__est span { color: var(--gold); }
+
+/* ---------- Kicker comune ---------- */
+.kicker { display: inline-block; font-size: .78rem; letter-spacing: .25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.4rem; }
+
+/* ---------- Sezioni ---------- */
+section { padding: clamp(5rem, 11vw, 9rem) clamp(1.2rem, 5vw, 5rem); }
+
+/* INTRO */
+.intro { max-width: var(--maxw); margin: 0 auto; text-align: center; }
+.intro__title { font-size: clamp(2.2rem, 6vw, 4.5rem); margin-bottom: 3rem; }
+.intro__cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; max-width: 900px; margin: 0 auto; text-align: left; }
+.intro__cols p { color: var(--text-muted); font-size: 1.05rem; }
+.intro__cols strong { color: var(--ink); font-weight: 400; }
+
+/* STATS */
+.stats { background: var(--ink); color: var(--cream); display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; }
+.stat { display: flex; flex-direction: column; align-items: center; gap: .4rem; }
+.stat__num { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 6vw, 4rem); color: var(--gold); line-height: 1; }
+.stat__plus { display: none; }
+.stat p { font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(245,241,234,.6); max-width: 18ch; }
+
+/* SERVIZI */
+.services { max-width: var(--maxw); margin: 0 auto; }
+.services__head { margin-bottom: 4rem; }
+.services__head h2 { font-size: clamp(2rem, 5vw, 4rem); }
+.services__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border-top: 1px solid var(--cream-2); }
+.service { padding: 3rem 2.5rem; border-bottom: 1px solid var(--cream-2); border-right: 1px solid var(--cream-2); transition: background .4s var(--ease); }
+.service:nth-child(2n) { border-right: 0; }
+.service:hover { background: var(--cream-2); }
+.service__num { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--gold); letter-spacing: .1em; }
+.service h3 { font-size: 1.9rem; margin: 1rem 0 .8rem; }
+.service p { color: var(--text-muted); max-width: 46ch; }
+
+/* BANNER */
+.banner { position: relative; min-height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 4rem 1.5rem; }
+.banner img { position: absolute; inset: 0; z-index: -1; filter: grayscale(.25) brightness(.7) sepia(.12); }
+.banner__overlay { position: absolute; inset: 0; background: rgba(28,26,23,.5); }
+.banner__quote { position: relative; color: var(--cream); font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(1.6rem, 4.5vw, 3.2rem); line-height: 1.25; max-width: 900px; }
+
+/* SEDI */
+.sedi { max-width: var(--maxw); margin: 0 auto; }
+.sedi__head { margin-bottom: 3.5rem; }
+.sedi__head h2 { font-size: clamp(2rem, 5vw, 4rem); }
+.sedi__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+.sede { background: #fff; border: 1px solid var(--cream-2); overflow: hidden; transition: transform .5s var(--ease), box-shadow .5s var(--ease); }
+.sede:hover { transform: translateY(-6px); box-shadow: 0 24px 50px -30px rgba(28,26,23,.4); }
+.sede > img { height: 320px; transition: transform .8s var(--ease); }
+.sede:hover > img { transform: scale(1.05); }
+.sede__body { padding: 2rem 2.2rem 2.4rem; }
+.sede__body h3 { font-size: 2.2rem; }
+.sede__body > p { color: var(--gold); font-size: .78rem; letter-spacing: .2em; text-transform: uppercase; margin-top: .3rem; }
+.sede__note { color: var(--text-muted) !important; text-transform: none !important; letter-spacing: 0 !important; font-size: .98rem !important; margin-top: 1rem !important; }
+
+/* CONTATTI */
+.contact { background: var(--ink); color: var(--cream); text-align: center; }
+.contact .kicker { color: var(--gold); }
+.contact__title { font-size: clamp(2.4rem, 7vw, 5.5rem); margin-bottom: 1.2rem; }
+.contact__title em { color: var(--gold); font-style: italic; }
+.contact__lead { color: rgba(245,241,234,.7); margin-bottom: 1rem; }
+.contact__phone { display: inline-block; font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 6vw, 3.5rem); color: var(--gold); margin-bottom: 3rem; transition: color .3s; }
+.contact__phone:hover { color: var(--cream); }
+.contact__cards { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+.contact__card { border: 1px solid rgba(245,241,234,.18); padding: 1.6rem 2.5rem; min-width: 240px; }
+.contact__card h4 { font-size: 1.5rem; }
+.contact__card p { font-size: .8rem; letter-spacing: .15em; text-transform: uppercase; color: rgba(245,241,234,.6); margin-top: .3rem; }
+
+/* FOOTER */
+.footer { background: var(--ink-soft); color: var(--cream); padding: 3.5rem clamp(1.2rem, 5vw, 5rem); display: grid; gap: 1.5rem; text-align: center; }
+.footer__name { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; }
+.footer__sub { display: block; font-size: .78rem; letter-spacing: .2em; text-transform: uppercase; color: rgba(245,241,234,.55); margin-top: .3rem; }
+.footer__info { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; color: rgba(245,241,234,.8); }
+.footer__info a:hover { color: var(--gold); }
+.footer__copy { font-size: .8rem; color: rgba(245,241,234,.45); border-top: 1px solid rgba(245,241,234,.12); padding-top: 1.5rem; }
+
+/* ---------- Animazioni ---------- */
+.fade, .fade-up, .reveal { opacity: 0; transition: opacity 1s var(--ease), transform 1s var(--ease); }
+.fade-up { transform: translateY(40px); }
+.reveal { transform: translateY(35px); }
+.is-loaded .fade { opacity: 1; transition-delay: .3s; }
+.is-loaded .fade-up { opacity: 1; transform: none; }
+.is-loaded .hero__title span:nth-child(2) { transition-delay: .15s; }
+.reveal.is-in { opacity: 1; transform: none; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 880px) {
+  .nav__links {
+    position: fixed; inset: 0; background: var(--ink); flex-direction: column; justify-content: center;
+    transform: translateX(100%); transition: transform .5s var(--ease);
+  }
+  .nav__links a, .nav.is-scrolled .nav__links a { color: var(--cream); font-size: 1.1rem; }
+  .nav.is-open .nav__links { transform: none; }
+  .nav__burger { display: flex; }
+  .intro__cols, .stats, .services__grid, .sedi__grid { grid-template-columns: 1fr; }
+  .stats { gap: 2.5rem; }
+  .service { border-right: 0 !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .fade, .fade-up, .reveal { opacity: 1 !important; transform: none !important; }
+}
