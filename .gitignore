@@ -3,3 +3,5 @@ package.json
 package-lock.json
 shot.mjs
 preview-*.png
+shot2.mjs
+check-standalone.png
