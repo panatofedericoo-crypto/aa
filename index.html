@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nova — Il futuro, oggi.</title>
+  <meta name="description" content="Nova è la piattaforma che trasforma le tue idee in prodotti digitali in tempo record. Veloce, elegante, potente." />
+
+  <!-- Open Graph (anteprima quando condividi il link) -->
+  <meta property="og:title" content="Nova — Il futuro, oggi." />
+  <meta property="og:description" content="Trasforma le tue idee in prodotti digitali in tempo record." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Cursore personalizzato -->
+  <div class="cursor" id="cursor"></div>
+
+  <!-- Loader iniziale -->
+  <div class="loader" id="loader">
+    <span class="loader__num" id="loaderNum">0</span>
+  </div>
+
+  <!-- Navbar -->
+  <header class="nav" id="nav">
+    <a href="#hero" class="nav__logo" data-hover>NOVA<span>.</span></a>
+    <nav class="nav__links">
+      <a href="#features" data-hover>Funzioni</a>
+      <a href="#showcase" data-hover>Showcase</a>
+      <a href="#pricing" data-hover>Prezzi</a>
+      <a href="#contact" class="nav__cta" data-hover>Inizia ora</a>
+    </nav>
+    <button class="nav__burger" id="burger" aria-label="Menu">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero__bg"></div>
+      <div class="hero__content">
+        <p class="hero__eyebrow reveal">★ La piattaforma n°1 per creator</p>
+        <h1 class="hero__title">
+          <span class="line"><span>Il futuro,</span></span>
+          <span class="line"><span>costruito <em>oggi</em>.</span></span>
+        </h1>
+        <p class="hero__sub reveal">Nova trasforma le tue idee in prodotti digitali in tempo record. Design eccezionale, prestazioni impossibili da ignorare.</p>
+        <div class="hero__actions reveal">
+          <a href="#contact" class="btn btn--primary" data-hover>Prova gratis</a>
+          <a href="#showcase" class="btn btn--ghost" data-hover>Guarda la demo →</a>
+        </div>
+      </div>
+      <div class="hero__scroll">scroll <span></span></div>
+    </section>
+
+    <!-- MARQUEE -->
+    <section class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Design • Velocità • Innovazione • Creatività • Risultati •&nbsp;</span>
+        <span>Design • Velocità • Innovazione • Creatività • Risultati •&nbsp;</span>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features" id="features">
+      <div class="section__head">
+        <span class="section__tag reveal">/ Funzioni</span>
+        <h2 class="section__title reveal">Tutto ciò che ti serve,<br/>niente di superfluo.</h2>
+      </div>
+      <div class="features__grid">
+        <article class="feature reveal" data-hover>
+          <span class="feature__num">01</span>
+          <h3>Velocità estrema</h3>
+          <p>Pagine che caricano in millisecondi. I tuoi utenti non aspettano mai.</p>
+        </article>
+        <article class="feature reveal" data-hover>
+          <span class="feature__num">02</span>
+          <h3>Design premiato</h3>
+          <p>Ogni dettaglio è pensato per stupire. Stile che converte.</p>
+        </article>
+        <article class="feature reveal" data-hover>
+          <span class="feature__num">03</span>
+          <h3>Totalmente tuo</h3>
+          <p>Personalizza colori, testi e contenuti in pochi minuti.</p>
+        </article>
+        <article class="feature reveal" data-hover>
+          <span class="feature__num">04</span>
+          <h3>Pronto per il mobile</h3>
+          <p>Impeccabile su ogni schermo, dal telefono al desktop.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SHOWCASE -->
+    <section class="showcase" id="showcase">
+      <div class="section__head">
+        <span class="section__tag reveal">/ Showcase</span>
+        <h2 class="section__title reveal">Risultati che parlano.</h2>
+      </div>
+      <div class="showcase__grid">
+        <div class="stat reveal"><span class="stat__num" data-count="98">0</span><span class="stat__unit">%</span><p>clienti soddisfatti</p></div>
+        <div class="stat reveal"><span class="stat__num" data-count="250">0</span><span class="stat__unit">+</span><p>progetti lanciati</p></div>
+        <div class="stat reveal"><span class="stat__num" data-count="3">0</span><span class="stat__unit">x</span><p>più conversioni</p></div>
+        <div class="stat reveal"><span class="stat__num" data-count="24">0</span><span class="stat__unit">/7</span><p>supporto dedicato</p></div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing" id="pricing">
+      <div class="section__head">
+        <span class="section__tag reveal">/ Prezzi</span>
+        <h2 class="section__title reveal">Scegli il tuo piano.</h2>
+      </div>
+      <div class="pricing__grid">
+        <article class="plan reveal" data-hover>
+          <h3>Starter</h3>
+          <p class="plan__price">€19<span>/mese</span></p>
+          <ul>
+            <li>1 progetto</li>
+            <li>Hosting incluso</li>
+            <li>Supporto email</li>
+          </ul>
+          <a href="#contact" class="btn btn--ghost" data-hover>Scegli</a>
+        </article>
+        <article class="plan plan--featured reveal" data-hover>
+          <span class="plan__badge">Più scelto</span>
+          <h3>Pro</h3>
+          <p class="plan__price">€49<span>/mese</span></p>
+          <ul>
+            <li>Progetti illimitati</li>
+            <li>Dominio personalizzato</li>
+            <li>Supporto prioritario</li>
+            <li>Analytics avanzate</li>
+          </ul>
+          <a href="#contact" class="btn btn--primary" data-hover>Scegli</a>
+        </article>
+        <article class="plan reveal" data-hover>
+          <h3>Business</h3>
+          <p class="plan__price">€99<span>/mese</span></p>
+          <ul>
+            <li>Tutto di Pro</li>
+            <li>Team illimitato</li>
+            <li>Account manager</li>
+          </ul>
+          <a href="#contact" class="btn btn--ghost" data-hover>Scegli</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- CTA / CONTACT -->
+    <section class="cta" id="contact">
+      <h2 class="cta__title reveal">Pronto a<br/><em>iniziare?</em></h2>
+      <p class="reveal">Lascia la tua email, ti ricontattiamo entro 24 ore.</p>
+      <form class="cta__form reveal" id="contactForm">
+        <input type="email" placeholder="la-tua@email.com" required aria-label="Email" />
+        <button type="submit" class="btn btn--primary" data-hover>Invia</button>
+      </form>
+      <p class="cta__msg" id="formMsg"></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__top">
+      <span class="footer__logo">NOVA<span>.</span></span>
+      <nav>
+        <a href="#features" data-hover>Funzioni</a>
+        <a href="#pricing" data-hover>Prezzi</a>
+        <a href="#contact" data-hover>Contatti</a>
+      </nav>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2026 Nova. Tutti i diritti riservati.</p>
+      <p>Realizzato con cura.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
